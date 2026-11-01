@@ -1,0 +1,18 @@
+# DESIGN CANDIDATE — 供 Codex 原型设计与测试使用，不代表最终 SNL 语法已审定
+snl_version: "0.1"
+project_id: example.snl_demo
+title: "SNL 多文件契约与局部解构演示"
+spec_files:
+  - modules/entity.config.yaml
+  - modules/capability.prepare.yaml
+  - modules/component.legacy.yaml
+  - modules/workflow.prepare.yaml
+scope_file: scope.yaml
+output_dir: .snl-out
+context_profiles:
+  implementer:
+    include: [interface, contracts, behavior, acceptance, scope, open_questions]
+  tester:
+    include: [interface, contracts, errors, acceptance, open_questions]
+  architect:
+    include: [dependencies, composition, ownership, contracts, open_questions]

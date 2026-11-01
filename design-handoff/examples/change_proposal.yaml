@@ -1,0 +1,32 @@
+# DESIGN CANDIDATE — 人机协同变更请求；不是审批凭据
+change_version: "0.1"
+change_id: CHG-PREP-001
+status: PROPOSED
+proposer: agent
+reason: "部分缺省字段必须在全面一致性校验前补足，旧顺序可能产生假错误。"
+base_view: approved_snapshot
+base_revision: "<fill-real-commit-or-hash-before-use>"
+target_ids:
+  - example.parameter_preparation
+  - example.prepare_workflow
+delta:
+  - operation: MODIFY
+    target_id: example.prepare_workflow
+    target_path: "/behavior/steps/S1"
+    proposed_statement: "先做结构检查，再按已确认规则补足缺省，最后做全量范围及一致性校验"
+  - operation: ADD
+    target_id: example.parameter_preparation
+    target_path: "/acceptance"
+    proposed_statement: "当补全规则不确定时明确报告未决，不擅自补齐"
+impact_review:
+  known_dependencies:
+    - example.legacy_tail
+  unknown_impacts:
+    - "是否改变某些参考工况的误差信息/输出结果"
+verification_plan:
+  - "建立缺省值在补全后才可判定的测试"
+  - "建立输入合法值保留及超限值拒绝的回归测试"
+approval:
+  status: PENDING_HUMAN_REVIEW
+  approved_by: null
+  approved_content_hash: null

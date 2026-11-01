@@ -1,0 +1,92 @@
+# DESIGN CANDIDATE — 报告式步骤/分支 + 已抽取能力/旧黑箱共存
+snl_version: "0.1"
+kind: Workflow
+id: example.prepare_workflow
+title: "参数准备后继续执行旧处理的组合流程"
+status: DRAFT
+intent: "渐进式替换原封闭 Workflow，保持剩余黑箱模块仍可被调用。"
+interface:
+  inputs:
+    - name: raw_config
+      type: object
+      required: true
+    - name: completion_rules
+      type: object
+      required: true
+  outputs:
+    - name: final_result
+      type: object
+    - name: validation_report
+      type: object
+dependencies:
+  - id: example.parameter_preparation
+    role: extracted_capability
+  - id: example.legacy_tail
+    role: remaining_opaque_component
+composition:
+  decomposition_status: partial
+  nodes:
+    - id: N-PREP
+      ref: example.parameter_preparation
+      role: extracted
+    - id: N-LEGACY
+      ref: example.legacy_tail
+      role: opaque
+  data_flows:
+    - from: "$input.raw_config"
+      to: N-PREP.raw_config
+    - from: "$input.completion_rules"
+      to: N-PREP.completion_rules
+    - from: N-PREP.normalized_config
+      to: N-LEGACY.normalized_config
+    - from: N-PREP.validation_report
+      to: "$output.validation_report"
+    - from: N-LEGACY.final_result
+      to: "$output.final_result"
+behavior:
+  entry: S1
+  steps:
+    - id: S1
+      kind: action
+      statement: "检查输入结构，识别缺失项，按已审定规则尝试补足，再进行完整一致性校验"
+      calls: example.parameter_preparation
+      next: S2
+    - id: S2
+      kind: decision
+      statement: "根据校验报告决定继续处理还是返回错误"
+      branches:
+        - when: "校验报告表明所有必需字段有效"
+          checkability: review
+          next: S3
+        - when: "校验失败或仍存在不可补全的必需字段"
+          checkability: review
+          next: SERR
+      exhaustiveness: review_required
+    - id: S3
+      kind: action
+      statement: "执行剩余封闭组件，不假设其内部结构已被解构"
+      calls: example.legacy_tail
+      next: S4
+    - id: S4
+      kind: exit
+      statement: "输出最终结果及参数来源/校验信息"
+    - id: SERR
+      kind: error
+      statement: "保留可定位错误及未解决问题，不输出虚构的成功结果"
+contracts:
+  postconditions:
+    - id: POST-WF-001
+      statement: "剩余旧组件必须仍可通过公开接口参与组合运行"
+      checkability: test
+      test_refs: [T-PARTIAL-DECOMPOSITION-001]
+acceptance:
+  - id: A-WF-001
+    statement: "抽出能力与 opaque 节点共存，graph 可准确呈现数据流"
+    checkability: machine
+  - id: A-WF-002
+    statement: "不得在未取得回归证据时声称旧新输出完全等价"
+    checkability: review
+open_questions:
+  - id: Q-WF-001
+    statement: "S2 的两个自然语言分支是否穷尽且互斥，需要人工/测试论证"
+    status: OPEN

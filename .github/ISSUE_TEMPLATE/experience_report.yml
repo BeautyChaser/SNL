@@ -1,0 +1,31 @@
+name: Development experience / 开发案例
+description: Share a real AI-assisted development failure or success / 分享 AI 辅助开发的失败或成功案例
+title: "[Experience] "
+body:
+  - type: markdown
+    attributes:
+      value: "Please use synthetic or anonymized examples that you have permission to share. / 请使用有权公开的合成或脱敏示例。"
+  - type: textarea
+    id: intent
+    attributes:
+      label: Intent and context / 原始意图与背景
+      description: What were you and the AI trying to achieve? Which tools mattered?
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed and expected behavior / 实际与预期行为
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal example and evidence / 最小案例与证据
+      description: Include relevant contracts, diffs, or results; describe limits if the case cannot be reproduced.
+    validations:
+      required: true
+  - type: textarea
+    id: lessons
+    attributes:
+      label: What SNL might help or make harder / SNL 可能改善或增加什么问题

@@ -1,0 +1,28 @@
+name: Implementation experiment / 实现实验
+description: Propose a small, verifiable implementation task / 提出可验证的小范围实现任务
+title: "[Implementation] "
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective and related proposal / 目标与相关提案
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and affected interfaces / 修改范围与受影响接口
+      description: State target modules or paths and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance and failure cases / 验收与失败案例
+      description: What commands, outputs, and evidence would demonstrate completion?
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Candidate choices and unresolved questions / 候选方案与未决问题

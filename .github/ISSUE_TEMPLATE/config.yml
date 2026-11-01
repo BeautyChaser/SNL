@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Open discussions / 开放讨论
+    url: https://github.com/BeautyChaser/SNL/discussions
+    about: Questions, alternatives, and early ideas in Chinese or English.

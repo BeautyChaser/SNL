@@ -1,0 +1,25 @@
+# DESIGN CANDIDATE — Entity/Ownership；不是 OS 级磁盘写权限
+snl_version: "0.1"
+kind: Entity
+id: example.parameter_config
+title: "参数配置实体"
+status: DRAFT
+intent: "代表预处理过程中可被读取与更新的逻辑配置；必须保留值及来源。"
+owner: example.prepare_workflow
+state:
+  - name: values
+    type: object
+    description: "参数名到参数值的映射"
+  - name: provenance
+    type: object
+    description: "各参数的输入/实验/辨识/计算来源记录"
+contracts:
+  invariants:
+    - id: INV-001
+      statement: "任何自动补全的参数都必须记录可回溯来源"
+      checkability: test
+      test_refs: [T-PROVENANCE-001]
+open_questions:
+  - id: Q-CONFIG-001
+    statement: "当不同来源相互矛盾时按何种业务优先级处理？"
+    status: OPEN

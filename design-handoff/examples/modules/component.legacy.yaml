@@ -1,0 +1,40 @@
+# DESIGN CANDIDATE — 局部解构中仍保持可运行的封闭单元
+snl_version: "0.1"
+kind: Component
+id: example.legacy_tail
+title: "原始封闭流程的剩余部分"
+status: DRAFT
+intent: "承接已抽取参数准备模块后仍未解构的原始处理过程。"
+encapsulation: opaque
+decomposition_status: partial
+implementation_ref:
+  kind: existing_adapter
+  location: "legacy/runner.py"
+  note: "示意路径；实际迁移需先确认是否有该文件"
+interface:
+  inputs:
+    - name: normalized_config
+      type: object
+      required: true
+  outputs:
+    - name: final_result
+      type: object
+contracts:
+  postconditions:
+    - id: POST-LEGACY-001
+      statement: "已有基准案例的输出不应产生无解释差异"
+      checkability: test
+      test_refs: [T-LEGACY-REGRESSION-001]
+side_effects:
+  - id: SE-001
+    description: "在实际业务实现中可能创建结果文件，具体位置需审定"
+    status: OPEN
+acceptance:
+  - id: A-LEGACY-001
+    statement: "保留旧流程对已验证样例的行为，兼容性不明时说明原因"
+    checkability: test
+    test_refs: [T-LEGACY-REGRESSION-001]
+open_questions:
+  - id: Q-LEGACY-001
+    statement: "剩余封闭模块进一步拆分边界尚未确定"
+    status: OPEN

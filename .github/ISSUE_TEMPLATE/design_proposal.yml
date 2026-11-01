@@ -1,0 +1,36 @@
+name: Design proposal / 设计提案
+description: Explore a language, workflow, or governance choice / 讨论语言、流程或治理方案
+title: "[Design] "
+body:
+  - type: markdown
+    attributes:
+      value: "Chinese and English are welcome. A counterexample or small experiment is useful. / 欢迎中英文，反例和小实验同样有价值。"
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 要解决的问题
+      description: What concrete development problem motivates this proposal?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior and example / 方案与示例
+      description: Include a minimal contract, workflow, or before-and-after case.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs / 备选方案与代价
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Experiment and acceptance evidence / 实验与验收证据
+      description: What result would support or challenge this proposal?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Related decisions, scope, and open questions / 相关决策、范围与未决点

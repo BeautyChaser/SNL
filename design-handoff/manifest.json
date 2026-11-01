@@ -1,0 +1,190 @@
+{
+  "package": "SNL Codex Prompt Pack",
+  "package_version": "0.1",
+  "built_on": "2026-11-01",
+  "language": "zh-CN",
+  "purpose": "Reconstructed historical SNL design and implementation prompts for Codex",
+  "source_scope": "Prior conversation discussions and summarized design decisions, not verbatim archival transcript",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c44dc1ac4d2d6e0e9193025b653647f293175cefe24e67a645bc5c386c1dae12",
+      "size_bytes": 2605
+    },
+    {
+      "path": "COMPACT_CONTEXT.md",
+      "sha256": "b1d0fad4ebedf3a190c4107d29b41bb73e58a1e391f222792109877342e876bc",
+      "size_bytes": 3178
+    },
+    {
+      "path": "ONE_SHOT_PROMPT.md",
+      "sha256": "ce93791e7f91d03e26e196b0195651072065ff94d8f785ce10b8723c6901542d",
+      "size_bytes": 4395
+    },
+    {
+      "path": "README.md",
+      "sha256": "17d181c34297ea08160b1d0758eeee2ff96d51e9bb37fcc3a178bb93f3bf86c4",
+      "size_bytes": 3242
+    },
+    {
+      "path": "START_HERE_FOR_CODEX.md",
+      "sha256": "1b387c40a497deb9db34faceffd9fa0ae21e83482bb0afdfd5688bad3a2dfd67",
+      "size_bytes": 6700
+    },
+    {
+      "path": "docs/01_vision_and_invariants.md",
+      "sha256": "6fb54033eeea0048e3c78720e3d161b5ae72a3ff41460a24ed71848dc8a609e0",
+      "size_bytes": 3763
+    },
+    {
+      "path": "docs/02_language_model.md",
+      "sha256": "2076e18a1f96bf04a3a272084196bdb74913296094740d859c6728129a30f941",
+      "size_bytes": 4637
+    },
+    {
+      "path": "docs/03_contract_rules_and_validation.md",
+      "sha256": "3d3d377167a97a82dc929eba14890b271935ed32ef4fe5c8241690d828398cad",
+      "size_bytes": 3448
+    },
+    {
+      "path": "docs/04_living_specification.md",
+      "sha256": "a58eaf5ddb4bb9582f6b21c5185a3cbb18443888ec05d790e03225a026c1bc74",
+      "size_bytes": 3384
+    },
+    {
+      "path": "docs/05_scoped_agent_operations.md",
+      "sha256": "d47faaa4b841fe977863b263a49b486d4fa81938bd10fdef7e6d894b6b7ea067",
+      "size_bytes": 3158
+    },
+    {
+      "path": "docs/06_partial_decomposition.md",
+      "sha256": "40298b02c1c186dc7838220a366a68d01d62823093e576c7338c74b2dea4fd24",
+      "size_bytes": 2679
+    },
+    {
+      "path": "docs/07_report_style_behavior.md",
+      "sha256": "e431d9f33cc9fc2074ea4398bd134d8630d56e718353f1268d0708d19073e613",
+      "size_bytes": 3281
+    },
+    {
+      "path": "docs/08_graph_and_context_bundles.md",
+      "sha256": "8d3c376b08a0a51d4fa158d5c0d50e221540fbf213570dba46e26ebb63c33c9f",
+      "size_bytes": 3037
+    },
+    {
+      "path": "docs/09_governance_and_boundaries.md",
+      "sha256": "be05bcf1a1397f9c2632d5bc6cac584fc5073eb9125c1e056a7d69f25eae6e8b",
+      "size_bytes": 2798
+    },
+    {
+      "path": "docs/10_decision_ledger.md",
+      "sha256": "6b248a7b151de559a7e93af6ff0598fc6a0655171970df3e128a226cb4b9585c",
+      "size_bytes": 4094
+    },
+    {
+      "path": "docs/11_open_questions.md",
+      "sha256": "7ec5457c2dc9a9d5a151be3431968b828d14f6b6adcbaac8c2619486fe88f2bb",
+      "size_bytes": 2578
+    },
+    {
+      "path": "docs/12_coverage_map.md",
+      "sha256": "b3c0a4482cbec9eaa9b24547a35097b03d6af3435601049f58434138e0d3eecb",
+      "size_bytes": 3148
+    },
+    {
+      "path": "examples/cases/README.md",
+      "sha256": "4231dc52092e5923db0a5a21dd3b20c3459b7ea3700b6a6a41ad8e65538448b3",
+      "size_bytes": 1626
+    },
+    {
+      "path": "examples/change_proposal.yaml",
+      "sha256": "71912708cf5857b818ce8378372e15bd107f9edbf2652ed9ca1934a72347e0a3",
+      "size_bytes": 1207
+    },
+    {
+      "path": "examples/modules/capability.prepare.yaml",
+      "sha256": "d144944123b1d6283b0c1b96f5e329bb23b596473baeefa767a6cb234cf3dbfa",
+      "size_bytes": 2416
+    },
+    {
+      "path": "examples/modules/component.legacy.yaml",
+      "sha256": "f1049ec4ebca9e8cd072f7e96676b39c5c3d663c2f38be4b034d49240f2895bf",
+      "size_bytes": 1261
+    },
+    {
+      "path": "examples/modules/entity.config.yaml",
+      "sha256": "f6c44cbdb25fa1bde5515f536f9d78dd61222d1f7efa987b58b680a404dc9b87",
+      "size_bytes": 823
+    },
+    {
+      "path": "examples/modules/workflow.prepare.yaml",
+      "sha256": "8a501041d39e13d0801ba9ab1d235202cef73b00262e07c0d599a0f54e0b590e",
+      "size_bytes": 2916
+    },
+    {
+      "path": "examples/parameter_preparation_report.md",
+      "sha256": "105f9e69856e1ffea1a4eb505b44a12e7cbbd474de273b815ff78ffa2ebb8554",
+      "size_bytes": 2605
+    },
+    {
+      "path": "examples/scope.yaml",
+      "sha256": "0fd700635ab9df15b7bda6e42bb4ff97cea49781f9e514124f42029b5f99b40f",
+      "size_bytes": 891
+    },
+    {
+      "path": "examples/snl.project.yaml",
+      "sha256": "e5d440c29e8c7e7460154d591f0244715b579720f8b527d6a457a1a6cc022263",
+      "size_bytes": 676
+    },
+    {
+      "path": "implementation/00_scope_and_techstack.md",
+      "sha256": "46177c55ae91de643ab27f50db6d43245eda19556ce812374cf2b2eb3c0b390d",
+      "size_bytes": 2445
+    },
+    {
+      "path": "implementation/01_cli_contract.md",
+      "sha256": "26e63aa5fe4bd10a2227a700b418abb8e475f300134798584dca43a9dad99e32",
+      "size_bytes": 3505
+    },
+    {
+      "path": "implementation/02_ir_and_schemas.md",
+      "sha256": "ffb49ca27e6469d95e78b32620e961557d2d6eef64f235a937616f6b29f025bb",
+      "size_bytes": 3521
+    },
+    {
+      "path": "implementation/03_milestones.md",
+      "sha256": "80de992fe88c8fb54081972a6db32602f241e275fc915f7abd8e66b1943a0c55",
+      "size_bytes": 2807
+    },
+    {
+      "path": "implementation/04_acceptance_matrix.md",
+      "sha256": "f869d02394b3c210a6cb976aafc26fb463b25168e6ea879876231b9f349078e2",
+      "size_bytes": 3561
+    },
+    {
+      "path": "prompts/P0_bootstrap.md",
+      "sha256": "163813bc4560e0c66143d254ebc0c7622c5a08054b5ab6435b0af56d38bca042",
+      "size_bytes": 1633
+    },
+    {
+      "path": "prompts/P1_semantics.md",
+      "sha256": "3e09a26c760e494493c0cbc4d979b8dc712c3afb3a8761c6c0bd5658f12bed47",
+      "size_bytes": 1002
+    },
+    {
+      "path": "prompts/P2_living_and_diff.md",
+      "sha256": "fcf13f09c014a59264fdf27a5106993efedac3dc8048668247e5a4e0c0ca9417",
+      "size_bytes": 1018
+    },
+    {
+      "path": "prompts/P3_scope_and_evidence.md",
+      "sha256": "4c79601c749e120d3fb1c0f1ae9c75a511448853eada275a747547ab692b8c09",
+      "size_bytes": 931
+    },
+    {
+      "path": "prompts/P4_pack_and_partial_decomposition.md",
+      "sha256": "761233418cbe18ed07341bd4e6e985068ea017a1fba7c90c6d6de42327d48b4a",
+      "size_bytes": 1041
+    }
+  ]
+}

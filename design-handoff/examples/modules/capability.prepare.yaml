@@ -1,0 +1,70 @@
+# DESIGN CANDIDATE — Capability 的公开行为，不规定内部函数/算法
+snl_version: "0.1"
+kind: Capability
+id: example.parameter_preparation
+title: "参数规范化及缺省补足"
+status: DRAFT
+intent: "处理输入配置的基本结构、补足缺省并执行最终一致性校验，不伪造缺失参数。"
+interface:
+  inputs:
+    - name: raw_config
+      type: object
+      required: true
+      description: "来自前端的原始 JSON 配置"
+    - name: completion_rules
+      type: object
+      required: true
+      description: "补缺省规则与可追溯来源"
+  outputs:
+    - name: normalized_config
+      type: object
+      description: "值已经保留/补齐并经过规则校验的参数集"
+    - name: validation_report
+      type: object
+      description: "逐字段状态、原因、来源和错误"
+contracts:
+  preconditions:
+    - id: PRE-001
+      statement: "输入应可解析为配置对象与规则对象"
+      checkability: machine
+  postconditions:
+    - id: POST-001
+      statement: "所有接受的缺省补足都有可定位的来源记录"
+      checkability: test
+      test_refs: [T-PROVENANCE-001]
+    - id: POST-002
+      statement: "合法显式值不被无依据的默认值覆盖"
+      checkability: test
+      test_refs: [T-KEEP-EXPLICIT-001]
+    - id: POST-003
+      statement: "缺少可靠来源时报告未解决项，不伪造数据"
+      checkability: test
+      test_refs: [T-NO-FABRICATION-001]
+  invariants: []
+errors:
+  - id: ERR-INVALID-VALUE
+    when: "已知范围内的输入值不满足约束"
+    behavior: "返回包含参数路径和错误类型的 validation_report"
+  - id: ERR-UNRESOLVED
+    when: "必需参数缺失且没有可信补全来源"
+    behavior: "明确标为缺失/未决，不能回填虚构值"
+side_effects: []
+acceptance:
+  - id: A-PREP-001
+    statement: "合法输入原样保留"
+    checkability: test
+    test_refs: [T-KEEP-EXPLICIT-001]
+  - id: A-PREP-002
+    statement: "无法补全时输出可定位错误"
+    checkability: test
+    test_refs: [T-NO-FABRICATION-001]
+  - id: A-PREP-003
+    statement: "数值是否符合真实电池业务规则需业务人员审定"
+    checkability: review
+open_questions:
+  - id: Q-PREP-001
+    statement: "缺省参数的来源优先级及可接受计算/辨识规则仍待明确"
+    status: OPEN
+source_refs:
+  - kind: discussion
+    id: design-discussion-2026-10-29

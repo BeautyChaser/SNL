@@ -1,0 +1,31 @@
+# DESIGN CANDIDATE — 示例项目中的阶段性操作范围；不能替代 OS 沙箱
+scope_version: "0.1"
+id: task.prepare_refactor
+status: DRAFT
+objective: "只整理参数预处理模块契约与其独立回归测试"
+non_goals:
+  - "修改原有求解器或整个 Workflow 架构"
+  - "下载或访问客户真实数据"
+project_root: "."
+allowed_read_paths:
+  - modules/
+  - parameter_preparation_report.md
+  - snl.project.yaml
+allowed_write_paths:
+  - src/parameter_preparation/
+  - tests/parameter_preparation/
+denied_paths:
+  - .env
+  - secrets/
+  - data/customer/
+target_ids:
+  - example.parameter_preparation
+required_acceptance:
+  - A-PREP-001
+  - A-PREP-002
+stop_conditions:
+  - "任何原有已审定公开接口将被改变"
+escalation_conditions:
+  - "需要修改 allowed_write_paths 之外的文件"
+  - "发现输入输出契约与参考输出冲突"
+base_revision: HEAD

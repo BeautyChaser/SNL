@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+# Preserve founding source bytes so its original SHA-256 manifest stays valid.
+# Markdown hard-break spaces in that snapshot are intentional.
+design-handoff/** -text whitespace=-blank-at-eol
